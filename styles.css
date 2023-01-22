@@ -1,0 +1,8 @@
+#dog-favorites-container {
+    padding: 1rem;
+    width: stretch;
+    height: auto;
+    display: none;
+    background: red;
+    opacity: .8;
+  }

@@ -55,7 +55,7 @@ function saveDog(favoriteDog){
       Accept: "application/json"
     },
     body: JSON.stringify({
-      "message": "",
+      "message": favoriteDog.src,
       "rating": 0
     })
     })

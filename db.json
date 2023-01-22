@@ -1,0 +1,24 @@
+{
+  "dogs": [
+    {
+      "id": 1,
+      "message": "url",
+      "rating": 0
+    },
+    {
+      "id": 2,
+      "message": "url",
+      "rating": 5
+    },
+    {
+      "message": "test",
+      "rating": 0,
+      "id": 3
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/clumber/n02101556_7617.jpg",
+      "rating": 0,
+      "id": 4
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 // Sets toggle display to none
 let addDog = false;
 let allDogs = [];
+let dogNum = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchDogs();
-    setTimeout(() => {renderDog(allDogs, 0)}, 5000);
+    setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
 });
 
 // Initial get request from dog API
@@ -68,13 +69,21 @@ function dogEvent(key) {
     switch (key) {
             case "ArrowLeft":
                 let rejectedDog = document.getElementsByClassName("dog-image")[0];
+                if (dogNum < 9) {
                 rejectedDog.remove();
-                renderDog(allDogs, 1);
+                dogNum++;
+                renderDog(allDogs, dogNum);
+                } else {
+                    rejectedDog.remove();
+                    fetchDogs();
+                    dogNum = 0;
+                    setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
+                };
                 break;
             case "ArrowRight":
                 console.log("Pressed right arrow!")
                 saveDog();
                 break;
             default: console.log();
-        }  
+        };  
 };

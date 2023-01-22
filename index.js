@@ -67,7 +67,9 @@ document.addEventListener("keydown", function(event) {
 function dogEvent(key) {
     switch (key) {
             case "ArrowLeft":
-                console.log("Pressed left arrow!")
+                let rejectedDog = document.getElementsByClassName("dog-image")[0];
+                rejectedDog.remove();
+                renderDog(allDogs, 1);
                 break;
             case "ArrowRight":
                 console.log("Pressed right arrow!")

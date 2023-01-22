@@ -46,19 +46,21 @@ const dogFavoritesContainer = document.getElementById("dog-favorites-container")
   });
 
 // Post request
-// function saveDog(event){
-//     fetch("", {
-//       method: "POST",
-//       headers: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json"
-//     },
-//     body: JSON.stringify({
-//       "message": 
-//     })
-//     })
-//     .then(res => res.json())
-//     };
+function saveDog(favoriteDog){
+    console.log(favoriteDog);
+    fetch("http://localhost:3000/dogs", {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      "message": "",
+      "rating": 0
+    })
+    })
+    .then(res => res.json())
+    };
 
 // Listen for left or right arrow
 document.addEventListener("keydown", function(event) {
@@ -81,8 +83,8 @@ function dogEvent(key) {
                 };
                 break;
             case "ArrowRight":
-                console.log("Pressed right arrow!")
-                saveDog();
+                let favoriteDog = document.getElementsByClassName("dog-image")[0];
+                saveDog(favoriteDog);
                 break;
             default: console.log();
         };  

@@ -20,8 +20,8 @@ function renderDog(dogs) {
     const img = document.createElement("img");
     img.className = "dog-image";
     img.src = allDogs[0];
-    img.style.width = "400px"
-    img.style.heigh = "auto";
+    img.style.width = "auto"
+    img.style.height = "400px";
     main.appendChild(img);
 };
 
@@ -38,9 +38,19 @@ const dogFavoritesContainer = document.getElementById("dog-favorites-container")
   });
 
 // Post request
-function saveDog() {
-
-};
+function saveDog(event){
+    fetch("", {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      "message": 
+    })
+    })
+    .then(res => res.json())
+    };
 
 // Listen for left or right arrow
 document.addEventListener("keydown", function(event) {

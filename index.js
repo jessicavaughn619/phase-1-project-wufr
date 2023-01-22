@@ -43,25 +43,21 @@ function saveDog() {
 };
 
 // Listen for left or right arrow
-$(dogCardContainer).on("swipeleft", function() {
-    console.log("Next dog please")
+document.addEventListener("keydown", function(event) {
+    dogEvent(event.key);
 });
 
-$(dogCardContainer).on("swiperight", function() {
-    console.log("Save this dog")
-});
-
-// function dogEvent(key) {
-//     switch (key) {
-//             case "ArrowLeft":
-//                 console.log("Pressed left arrow!")
-//                 break;
+function dogEvent(key) {
+    switch (key) {
+            case "ArrowLeft":
+                console.log("Pressed left arrow!")
+                break;
             
-//             case "ArrowRight":
-//                 console.log("Pressed right arrow!")
-//                 saveDog();
-//                 break;
+            case "ArrowRight":
+                console.log("Pressed right arrow!")
+                saveDog();
+                break;
 
-//             default: console.log();
-//         }  
-// }
+            default: console.log();
+        }  
+};

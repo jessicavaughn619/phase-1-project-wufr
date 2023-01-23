@@ -66,13 +66,15 @@ function saveDog(favoriteDog){
 // Render favorite dog in favorites container
 function renderFavoriteDog(allFavoriteDogs) {
     const favoriteDogContainer = document.getElementById("dog-favorites-container");
+    
     allFavoriteDogs.forEach(dog => {
+        console.log(dog);
         const favoriteImg = document.createElement("img");
         favoriteImg.className = "favorite-dog-image";
         favoriteImg.src = dog.message;
         favoriteImg.style.width = "auto"
         favoriteImg.style.height = "200px";
-        favoriteImg.innerHTML = `${dog.rating}`;
+        favoriteImg.innerText = `<h2>${dog.rating}</h2>`;
         favoriteDogContainer.appendChild(favoriteImg); 
     });
 };
@@ -100,8 +102,9 @@ function dogEvent(key) {
                 break;
             case "ArrowRight":
                 let favoriteDog = document.getElementsByClassName("dog-image")[0];
-                console.log(favoriteDog);
                 saveDog(favoriteDog);
+                renderFavoriteDog(allFavoriteDogs);
+                allFavoriteDogs = [];
                 if (dogNum < 9) {
                     favoriteDog.remove();
                     dogNum++;
@@ -112,10 +115,7 @@ function dogEvent(key) {
                         dogNum = 0;
                         setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
                     };
-                favoriteDog.remove();
-                dogNum++;
-                renderDog(allDogs, dogNum);
-                renderFavoriteDog(allFavoriteDogs);
+            // Favorite dogs taking one additional right click to push most recent to favorites, as first click there is only one item in the array so the forEach does not run.
                 break;
             default: console.log();
         };  

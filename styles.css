@@ -1,8 +1,17 @@
 #dog-favorites-container {
     padding: 1rem;
-    width: stretch;
+    width: auto;
     height: auto;
     display: none;
     background: red;
     opacity: .8;
+  }
+
+  #instructions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1 {
+    text-align: center;
   }

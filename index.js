@@ -2,6 +2,7 @@
 let addDog = false;
 let allDogs = [];
 let dogNum = 0;
+let allFavoriteDogs = [];
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchDogs();
@@ -47,7 +48,6 @@ const dogFavoritesContainer = document.getElementById("dog-favorites-container")
 
 // Post request
 function saveDog(favoriteDog){
-    console.log(favoriteDog);
     fetch("http://localhost:3000/dogs", {
       method: "POST",
       headers: {
@@ -60,7 +60,22 @@ function saveDog(favoriteDog){
     })
     })
     .then(res => res.json())
+    .then(json => allFavoriteDogs.push(json))
     };
+
+// Render favorite dog in favorites container
+function renderFavoriteDog(allFavoriteDogs) {
+    const favoriteDogContainer = document.getElementById("dog-favorites-container");
+    allFavoriteDogs.forEach(dog => {
+        const favoriteImg = document.createElement("img");
+        favoriteImg.className = "favorite-dog-image";
+        favoriteImg.src = dog.message;
+        favoriteImg.style.width = "auto"
+        favoriteImg.style.height = "200px";
+        favoriteImg.innerHTML = `${dog.rating}`;
+        favoriteDogContainer.appendChild(favoriteImg); 
+    });
+};
 
 // Listen for left or right arrow
 document.addEventListener("keydown", function(event) {
@@ -71,6 +86,7 @@ function dogEvent(key) {
     switch (key) {
             case "ArrowLeft":
                 let rejectedDog = document.getElementsByClassName("dog-image")[0];
+                console.log(rejectedDog);
                 if (dogNum < 9) {
                 rejectedDog.remove();
                 dogNum++;
@@ -84,7 +100,22 @@ function dogEvent(key) {
                 break;
             case "ArrowRight":
                 let favoriteDog = document.getElementsByClassName("dog-image")[0];
+                console.log(favoriteDog);
                 saveDog(favoriteDog);
+                if (dogNum < 9) {
+                    favoriteDog.remove();
+                    dogNum++;
+                    renderDog(allDogs, dogNum);
+                    } else {
+                        favoriteDog.remove();
+                        fetchDogs();
+                        dogNum = 0;
+                        setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
+                    };
+                favoriteDog.remove();
+                dogNum++;
+                renderDog(allDogs, dogNum);
+                renderFavoriteDog(allFavoriteDogs);
                 break;
             default: console.log();
         };  

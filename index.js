@@ -1,12 +1,13 @@
 // Sets toggle display to none
 let addDog = false;
+
 let allDogs = [];
 let dogNum = 0;
 let allFavoriteDogs = [];
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchDogs();
-    setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
+    setTimeout(() => {renderDog(allDogs, dogNum)}, 2000);
 });
 
 // Initial get request from dog API
@@ -16,6 +17,7 @@ function fetchDogs() {
     fetch(dogUrl)
     .then(res => res.json())
     .then(json => makeDogArray(json.message))
+    .catch(error => console.error(error))
 };
 
 function makeDogArray(json) {
@@ -66,9 +68,7 @@ function saveDog(favoriteDog){
 // Render favorite dog in favorites container
 function renderFavoriteDog(allFavoriteDogs) {
     const favoriteDogContainer = document.getElementById("dog-favorites-container");
-    
     allFavoriteDogs.forEach(dog => {
-        console.log(dog);
         const favoriteImg = document.createElement("img");
         favoriteImg.className = "favorite-dog-image";
         favoriteImg.src = dog.message;
@@ -88,7 +88,6 @@ function dogEvent(key) {
     switch (key) {
             case "ArrowLeft":
                 let rejectedDog = document.getElementsByClassName("dog-image")[0];
-                console.log(rejectedDog);
                 if (dogNum < 9) {
                 rejectedDog.remove();
                 dogNum++;
@@ -97,7 +96,7 @@ function dogEvent(key) {
                     rejectedDog.remove();
                     fetchDogs();
                     dogNum = 0;
-                    setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
+                    setTimeout(() => {renderDog(allDogs, dogNum)}, 2000);
                 };
                 break;
             case "ArrowRight":
@@ -113,9 +112,8 @@ function dogEvent(key) {
                         favoriteDog.remove();
                         fetchDogs();
                         dogNum = 0;
-                        setTimeout(() => {renderDog(allDogs, dogNum)}, 5000);
+                        setTimeout(() => {renderDog(allDogs, dogNum)}, 2000);
                     };
-            // Favorite dogs taking one additional right click to push most recent to favorites, as first click there is only one item in the array so the forEach does not run.
                 break;
             default: console.log();
         };  

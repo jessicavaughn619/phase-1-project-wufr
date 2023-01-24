@@ -1,17 +1,72 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+#dog-header {
+  background-image: url("img/paw-background.jpeg");
+}
+
 #dog-favorites-container {
-    padding: 1rem;
-    width: auto;
-    height: auto;
-    display: none;
-    background: red;
-    opacity: .8;
-  }
+  padding: 1rem;
+  margin-bottom: 2rem;
+  width: auto;
+  height: auto;
+  display: none;
+  background-image: url("img/black-felt.png");
+  background-color: pink;
+  opacity: .8;
+  text-align: center;
+}
 
-  #instructions {
-    display: flex;
-    justify-content: space-between;
-  }
+#favorite-dog-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  padding: 10px;
+  font-size: 20px;
+}
 
-  h1 {
-    text-align: center;
-  }
+#paw-prints {
+  height: 400px;
+}
+
+#dog__card__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+#dog-card-container {
+  padding: 50px;
+}
+
+.dog-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-radius: 25px;
+}
+
+#arrow {
+  height: 100px;
+}
+
+#instructions {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+  color: pink;
+  font-size: 60px;
+}
+
+#page-background {
+  background-image: url("img/paw-background.jpeg");
+  height: 200px;
+}

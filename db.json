@@ -1,5 +1,49 @@
 {
   "dogs": [
-
+    {
+      "message": "https://images.dog.ceo/breeds/labradoodle/Cali.jpg",
+      "rating": 0,
+      "id": 1
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/finnish-lapphund/mochilamvan.jpg",
+      "rating": 0,
+      "id": 2
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/chihuahua/n02085620_4814.jpg",
+      "rating": 0,
+      "id": 3
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/sharpei/noel.jpg",
+      "rating": 0,
+      "id": 4
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_2982.jpg",
+      "rating": 0,
+      "id": 5
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/dalmatian/cooper1.jpg",
+      "rating": 0,
+      "id": 6
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/saluki/n02091831_3052.jpg",
+      "rating": 0,
+      "id": 7
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/pyrenees/n02111500_4851.jpg",
+      "rating": 0,
+      "id": 8
+    },
+    {
+      "message": "https://images.dog.ceo/breeds/weimaraner/n02092339_4527.jpg",
+      "rating": 0,
+      "id": 9
+    }
   ]
 }

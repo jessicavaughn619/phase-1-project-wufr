@@ -41,8 +41,10 @@ const dogFavoritesContainer = document.getElementById("dog-favorites-container")
     addDog = !addDog;
     if (addDog) {
       dogFavoritesContainer.style.display = "block";
+      favoritesBtn.innerHTML = "Hide Favorite Dogs";
     } else {
       dogFavoritesContainer.style.display = "none";
+      favoritesBtn.innerHTML = "See Favorite Dogs";
     }
   });
 
@@ -68,11 +70,18 @@ function renderFavoriteDog(allFavoriteDogs) {
     allFavoriteDogs.forEach(dog => {
         const favoriteImg = document.createElement("img");
         favoriteImg.className = "favorite-dog-image";
+        favoriteImg.id = "favorite-dogs";
         favoriteImg.src = dog.message;
-        favoriteImg.innerText = `<h2>${dog.rating}</h2>`;
         favoriteDogContainer.appendChild(favoriteImg); 
     });
 };
+
+// // Mouseover favorite dog event
+// let favoriteDogs = document.getElementsById("favorite-dogs");
+// favoriteDogs.addEventListener("mouseover", (event) => {
+//     console.log(event);
+// });
+
 
 // Listen for left or right arrow
 document.addEventListener("keydown", function(event) {

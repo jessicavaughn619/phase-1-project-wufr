@@ -55,8 +55,7 @@ function saveDog(favoriteDog){
       Accept: "application/json"
     },
     body: JSON.stringify({
-      "message": favoriteDog.src,
-      "rating": 0
+      "message": favoriteDog.src
     })
     })
     .then(res => res.json())
@@ -82,35 +81,35 @@ document.addEventListener("keydown", function(event) {
 
 function dogEvent(key) {
     switch (key) {
-            case "ArrowLeft":
-                let rejectedDog = document.getElementsByClassName("dog-image")[0];
-                if (dogNum < 9) {
+        case "ArrowLeft":
+            let rejectedDog = document.getElementsByClassName("dog-image")[0];
+            if (dogNum < 9) {
+            rejectedDog.remove();
+            dogNum++;
+            renderDog(allDogs, dogNum);
+            } else {
                 rejectedDog.remove();
+                fetchDogs();
+                dogNum = 0;
+                setTimeout(() => {renderDog(allDogs, dogNum)}, 2000);
+            };
+            break;
+        case "ArrowRight":
+            let favoriteDog = document.getElementsByClassName("dog-image")[0];
+            saveDog(favoriteDog);
+            renderFavoriteDog(allFavoriteDogs);
+            allFavoriteDogs = [];
+            if (dogNum < 9) {
+                favoriteDog.remove();
                 dogNum++;
                 renderDog(allDogs, dogNum);
                 } else {
-                    rejectedDog.remove();
+                    favoriteDog.remove();
                     fetchDogs();
                     dogNum = 0;
                     setTimeout(() => {renderDog(allDogs, dogNum)}, 2000);
                 };
-                break;
-            case "ArrowRight":
-                let favoriteDog = document.getElementsByClassName("dog-image")[0];
-                saveDog(favoriteDog);
-                renderFavoriteDog(allFavoriteDogs);
-                allFavoriteDogs = [];
-                if (dogNum < 9) {
-                    favoriteDog.remove();
-                    dogNum++;
-                    renderDog(allDogs, dogNum);
-                    } else {
-                        favoriteDog.remove();
-                        fetchDogs();
-                        dogNum = 0;
-                        setTimeout(() => {renderDog(allDogs, dogNum)}, 2000);
-                    };
-                break;
-            default: console.log();
-        };  
+            break;
+        default: console.log();
+    };  
 };

@@ -22,8 +22,14 @@
   display: none;
   background-image: url("img/black-felt.png");
   background-color: pink;
-  opacity: .8;
   text-align: center;
+}
+
+.favorite-dog-image {
+  border-radius: 25px;
+  height: 200px;
+  width: auto;
+  padding: 20px;
 }
 
 #favorite-dog-button {
@@ -33,6 +39,8 @@
   width: auto;
   padding: 10px;
   font-size: 20px;
+  border-radius: 10px;
+  border-color: pink;
 }
 
 #paw-prints {
@@ -56,6 +64,8 @@
   margin-right: auto;
   width: 50%;
   border-radius: 25px;
+  height: 400px;
+  width: auto;
 }
 
 #arrow {

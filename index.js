@@ -31,8 +31,6 @@ function renderDog(dogs, num) {
     const img = document.createElement("img");
     img.className = "dog-image";
     img.src = dogs[num];
-    img.style.width = "auto"
-    img.style.height = "400px";
     main.appendChild(img);
 };
 
@@ -72,8 +70,6 @@ function renderFavoriteDog(allFavoriteDogs) {
         const favoriteImg = document.createElement("img");
         favoriteImg.className = "favorite-dog-image";
         favoriteImg.src = dog.message;
-        favoriteImg.style.width = "auto"
-        favoriteImg.style.height = "200px";
         favoriteImg.innerText = `<h2>${dog.rating}</h2>`;
         favoriteDogContainer.appendChild(favoriteImg); 
     });

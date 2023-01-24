@@ -4,11 +4,18 @@
 }
 
 #dog-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("img/paw-background.jpeg");
+  height: 125px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #dog-favorites-container {
   padding: 1rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   width: auto;
   height: auto;
@@ -40,7 +47,7 @@
 }
 
 #dog-card-container {
-  padding: 50px;
+  padding: 0, 50px, 0, 50px;
 }
 
 .dog-image {
@@ -53,6 +60,14 @@
 
 #arrow {
   height: 100px;
+}
+
+#left-swipe {
+  margin-right: 50px;
+}
+
+#right-swipe {
+  margin-left: 50px;
 }
 
 #instructions {
@@ -69,4 +84,9 @@ h1 {
 #page-background {
   background-image: url("img/paw-background.jpeg");
   height: 200px;
+}
+
+.footer {
+  text-align: center;
+  padding: 50px;
 }

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 5000)
 });
 
-// Initial get request from dog API
+// Initial get requests from dog API & db.json favorite dogs
 const dogUrl = "https://dog.ceo/api/breeds/image/random/10";
 const favoriteDogUrl = "http://localhost:3000/dogs";
 
@@ -61,7 +61,7 @@ const dogFavoritesContainer = document.getElementById("dog-favorites-container")
     }
   });
 
-// Post request
+// Post dog to favorite dogs
 function saveDog(dog){
     fetch("http://localhost:3000/dogs", {
       method: "POST",
@@ -80,14 +80,15 @@ function saveDog(dog){
     });
 };
 
-// Render favorite dog in favorites container
+// Render favorite dogs in favorites container
 function renderFavoriteDogs(dogs) {
     const favoriteDogContainer = document.getElementById("dog-favorites-container");
     dogs.forEach(dog => {
         const favoriteImg = document.createElement("img");
         favoriteImg.className = "favorite-dog-image";
-        favoriteImg.id = "favorite-dogs";
+        favoriteImg.id = `${dog.id}`;
         favoriteImg.src = dog.message;
+        favoriteImg.addEventListener("click", removeDog);
         favoriteDogContainer.appendChild(favoriteImg); 
     });
 };
@@ -126,3 +127,17 @@ function dogEvent(key) {
         default: console.log();
     };  
 };
+
+// Delete dog from favorites
+function removeDog(event) {
+    let rejectedDog = document.getElementById(event.target.id);
+    fetch(`http://localhost:3000/dogs/${event.target.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type":"application/json"
+        }
+    })
+    .then(res => res.json());
+    rejectedDog.remove();
+};
+
